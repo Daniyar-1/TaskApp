@@ -1,9 +1,15 @@
 package com.example.taskapp.ui.note.models;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
-public class Note {
+@Entity
+public class Note implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private String imgURL;
     private String title, description;
 
@@ -18,6 +24,14 @@ public class Note {
         this.title = title;
         this.description = desc;
 
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getImgURL() {
